@@ -779,6 +779,33 @@ const PRODUTOS = CAT_DB ? CAT_DB.produtos.flatMap(p => p.variacoes.map((v, k) =>
 })) : RESERVA;
 const byId = id => PRODUTOS.find(p => p.id === id);
 
+/* ================= Contador de interesse =================
+   Conta, para o painel da loja, quem abriu um modelo, provou no rosto ou chamou no WhatsApp.
+   Não guarda nada sobre a pessoa: só o modelo, o tipo de clique e a hora. */
+const jaMarcou = new Set();
+function marca(tipo, item){
+  try{
+    if(navigator.webdriver || !SUPA_URL.startsWith("http")) return;
+    const chave = tipo + ":" + (item || "");
+    if(tipo !== "whatsapp"){
+      if(jaMarcou.has(chave)) return;
+      try{ if(sessionStorage.getItem("yas:" + chave)) return; sessionStorage.setItem("yas:" + chave, "1"); }catch{}
+      jaMarcou.add(chave);
+    }
+    fetch(`${SUPA_URL}/rest/v1/rpc/registrar_interesse`, { method: "POST", keepalive: true,
+      headers: { apikey: SUPA_KEY, Authorization: `Bearer ${SUPA_KEY}`, "Content-Type": "application/json" },
+      body: JSON.stringify({ p_loja: LOJA, p_item: item || null, p_tipo: tipo }) }).catch(() => {});
+  }catch{}
+}
+document.addEventListener("click", e => {
+  try{
+    const a = e.target.closest("a"); if(!a) return;
+    if(a.id === "dZap" || a.id === "dZap2") marca("whatsapp", produtoAtual?.id);
+    else if(a.id === "provZap") marca("whatsapp", provAtual?.id);
+    else if(a.hasAttribute("data-zap")) marca("whatsapp", null);
+  }catch{}
+}, true);
+
 /* ================= Modelagem 3D das armações ================= */
 // Unidade = largura do rosto (têmpora a têmpora). Origem = ponte do nariz; +z aponta para quem olha.
 function contornoLente(estilo, N = 72){
@@ -1080,7 +1107,7 @@ function aplica(p, suavizar){
 }
 
 function abrirProvador(id){
-  provAtual = byId(id) || PRODUTOS[0];
+  provAtual = byId(id) || PRODUTOS[0]; marca("provou", provAtual.id);
   prepara3D(); trocaArmacao(provAtual.id);
   $("prov").hidden = false; document.body.style.overflow = "hidden";
   $("inicio").classList.remove("hidden"); $("clique").classList.add("hidden"); status("");
@@ -1161,6 +1188,7 @@ $("fotoFechar").addEventListener("click", () => $("fotoOk").hidden = true);
 $("fotoEnviar").addEventListener("click", async () => {
   const texto = `Olá, Ótica Yas! Provei o modelo "${provAtual.nome}" no provador virtual. O que acham? 😍`;
   const arq = ultimaFoto && new File([ultimaFoto], "oticayas-provador.jpg", { type: "image/jpeg" });
+  marca("whatsapp", provAtual.id);
   if(arq && navigator.canShare && navigator.canShare({ files: [arq] })){
     try{ await navigator.share({ files: [arq], text: texto }); return; }catch(e){ if(e.name === "AbortError") return; }
   }
@@ -1245,7 +1273,7 @@ function angulos(p){
 let produtoAtual = null, pdpView = null, scrollHome = 0;
 function abrirProduto(id){ location.hash = "#oculos/" + id; }
 function mostraPdp(p){
-  produtoAtual = p;
+  produtoAtual = p; marca("viu", p.id);
   $("home").hidden = true; $("pdp").hidden = false; document.body.classList.add("na-pdp");
   document.title = p.nome + " · Ótica Yas";
   $("dMigCat").textContent = catNome(p); $("dMigCat").dataset.aba = p.cat; $("dMigNome").textContent = p.nome;
