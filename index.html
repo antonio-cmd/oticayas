@@ -401,6 +401,9 @@ section[id],#vitrine{scroll-margin-top:66px}
 @media (min-width:901px){.slide.claro img{left:auto;right:0;width:auto;max-width:none;height:100%;aspect-ratio:2200/894}}
 @media (min-width:901px) and (max-width:1400px){.slide.claro::after{background:linear-gradient(90deg,rgba(248,241,233,.97) 0%,rgba(248,241,233,.9) 34%,rgba(248,241,233,0) 58%)}}
 .slide.claro .txt{color:var(--forte)}
+.slide.claro small{background:var(--roxo2);color:#fff}
+.slide.claro img,.slide.claro.ativo img{transform:none;transition:none}
+@media (min-width:901px){.slide.claro{align-items:center}.slide.claro .txt{padding-bottom:40px}}
 .slide.claro p{color:var(--ink)}
 .banner:has(.slide.claro.ativo) .pontinhos button{background:rgba(30,26,36,.22)}
 .banner:has(.slide.claro.ativo) .pontinhos button.on{background:rgba(30,26,36,.18)}
@@ -470,7 +473,7 @@ body:has(.slide.claro.ativo) .vant{background:rgba(42,15,87,.9)}
   <div class="slides" id="slides">
     <div class="slide claro">
       <img src="img/banner-casal.webp" width="2200" height="894" alt="Casal usando armações redondas de acetato" fetchpriority="high">
-      <div class="txt"><div class="vidro"><small>Ótica Yas · Jacobina-BA</small><h2>Seu novo olhar começa aqui</h2><p>Armações de grau e solar para todos os estilos, com lentes feitas com a sua receita.</p><a class="btn" href="#vitrine">Ver armações</a></div></div>
+      <div class="txt"><div class="vidro"><small>Ótica Yas · Jacobina-BA</small><h2>Seu novo olhar começa aqui</h2><p>Armações de grau e solar para todos os estilos,<br> com lentes feitas com a sua receita.</p><a class="btn" href="#vitrine">Ver armações</a></div></div>
     </div>
     <div class="slide">
       <img src="https://images.unsplash.com/photo-1530047139082-5435ca3c4614?auto=format&fit=crop&w=1800&h=900&q=72" alt="Duas amigas sorrindo, uma de óculos" loading="lazy">
