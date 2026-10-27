@@ -394,9 +394,23 @@ section[id],#vitrine{scroll-margin-top:66px}
 .vidro h2{margin-top:12px}.vidro p{margin-bottom:18px}
 @media (max-width:700px){.slide .txt{padding:0 12px 82px}.slide::after{background:linear-gradient(0deg,rgba(20,8,40,.45) 0%,rgba(20,8,40,0) 60%)}}
 .pontinhos{bottom:88px}
+/* slide de fundo claro: foto inteira, sem o degradê roxo, texto escuro */
+.slide.claro{background:#F8F1E9}
+.slide.claro::after{background:none}
+.slide.claro img{left:0;width:100%;-webkit-mask-image:none;mask-image:none;object-position:right center}
+@media (min-width:901px){.slide.claro img{left:auto;right:0;width:auto;max-width:none;height:100%;aspect-ratio:2200/894}}
+@media (min-width:901px) and (max-width:1400px){.slide.claro::after{background:linear-gradient(90deg,rgba(248,241,233,.97) 0%,rgba(248,241,233,.9) 34%,rgba(248,241,233,0) 58%)}}
+.slide.claro .txt{color:var(--forte)}
+.slide.claro p{color:var(--ink)}
+.banner:has(.slide.claro.ativo) .pontinhos button{background:rgba(30,26,36,.22)}
+.banner:has(.slide.claro.ativo) .pontinhos button.on{background:rgba(30,26,36,.18)}
+.banner:has(.slide.claro.ativo) .pontinhos button.on::after{background:var(--forte)}
+@media (max-width:900px){.slide.claro img{object-position:72% center}.slide.claro::after{background:linear-gradient(0deg,rgba(248,241,233,.97) 0%,rgba(248,241,233,.85) 32%,rgba(248,241,233,0) 62%)}}
 @media (max-width:760px){.pontinhos{bottom:66px}}
 .vant{position:relative;z-index:3;margin-top:-68px;background:rgba(42,15,87,.42);backdrop-filter:blur(18px) saturate(1.4);-webkit-backdrop-filter:blur(18px) saturate(1.4);border-top:1px solid rgba(255,255,255,.18)}
 @media (max-width:760px){.vant{margin-top:-52px}}
+.vant{transition:background .6s}
+body:has(.slide.claro.ativo) .vant{background:rgba(42,15,87,.9)}
 .seta-b{background:rgba(255,255,255,.55);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border:1px solid rgba(255,255,255,.6);box-shadow:0 6px 18px rgba(20,8,40,.12);transition:background .2s,transform .2s}
 .seta-b:hover{background:rgba(255,255,255,.85);transform:translateY(-50%) scale(1.06)}
 .cat .t{margin:12px;width:calc(100% - 24px);padding:16px;border-radius:14px;background:rgba(255,255,255,.16);backdrop-filter:blur(14px) saturate(1.4);-webkit-backdrop-filter:blur(14px) saturate(1.4);border:1px solid rgba(255,255,255,.3)}
@@ -454,9 +468,9 @@ section[id],#vitrine{scroll-margin-top:66px}
 <div id="home">
 <section class="banner" id="banner">
   <div class="slides" id="slides">
-    <div class="slide">
-      <img src="https://images.unsplash.com/photo-1552942362-50ecec295033?auto=format&fit=crop&w=1800&h=900&q=72&crop=faces" alt="Mulher usando óculos de grau" fetchpriority="high">
-      <div class="txt"><div class="vidro"><small>Ótica Yas · Jacobina-BA</small><h2>Seu novo olhar começa aqui</h2><p>Armações de grau e solar para todos os estilos, com lentes feitas com a sua receita.</p><a class="btn branco" href="#vitrine">Ver armações</a></div></div>
+    <div class="slide claro">
+      <img src="img/banner-casal.webp" width="2200" height="894" alt="Casal usando armações redondas de acetato" fetchpriority="high">
+      <div class="txt"><div class="vidro"><small>Ótica Yas · Jacobina-BA</small><h2>Seu novo olhar começa aqui</h2><p>Armações de grau e solar para todos os estilos, com lentes feitas com a sua receita.</p><a class="btn" href="#vitrine">Ver armações</a></div></div>
     </div>
     <div class="slide">
       <img src="https://images.unsplash.com/photo-1530047139082-5435ca3c4614?auto=format&fit=crop&w=1800&h=900&q=72" alt="Duas amigas sorrindo, uma de óculos" loading="lazy">
