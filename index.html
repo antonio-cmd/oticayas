@@ -408,7 +408,19 @@ section[id],#vitrine{scroll-margin-top:66px}
 .banner:has(.slide.claro.ativo) .pontinhos button{background:rgba(30,26,36,.22)}
 .banner:has(.slide.claro.ativo) .pontinhos button.on{background:rgba(30,26,36,.18)}
 .banner:has(.slide.claro.ativo) .pontinhos button.on::after{background:var(--forte)}
-@media (max-width:900px){.slide.claro img{object-position:72% center}.slide.claro::after{background:linear-gradient(0deg,rgba(248,241,233,.97) 0%,rgba(248,241,233,.85) 32%,rgba(248,241,233,0) 62%)}}
+@media (min-width:701px) and (max-width:900px){.slide.claro img{object-position:72% center}.slide.claro::after{background:linear-gradient(0deg,rgba(248,241,233,.97) 0%,rgba(248,241,233,.85) 32%,rgba(248,241,233,0) 62%)}}
+/* celular: arte vertical, texto no espaço livre de cima */
+@media (max-width:700px){
+  .slide.claro{background:#F6EFE9;align-items:flex-start;height:calc(100vw * 5 / 3 - 40px);min-height:0;max-height:none}
+  .slide.claro img{top:auto;bottom:-72px;height:auto;width:100%;object-fit:fill}
+  .slide.claro::after{background:none}
+  .slide.claro .txt{padding:20px 16px 0}
+  .slide.claro h2{font-size:30px;margin:10px 0 8px}
+  @media (max-width:380px){.slide.claro h2{font-size:27px}.slide.claro p{font-size:13.5px}}
+  .slide.claro p{font-size:14px;margin-bottom:14px}
+  .slide.claro p br{display:none}
+  .slide.claro .btn{padding:11px 20px;font-size:13px}
+}
 @media (max-width:760px){.pontinhos{bottom:66px}}
 .vant{position:relative;z-index:3;margin-top:-68px;background:rgba(42,15,87,.42);backdrop-filter:blur(18px) saturate(1.4);-webkit-backdrop-filter:blur(18px) saturate(1.4);border-top:1px solid rgba(255,255,255,.18)}
 @media (max-width:760px){.vant{margin-top:-52px}}
@@ -472,7 +484,7 @@ body:has(.slide.claro.ativo) .vant{background:rgba(42,15,87,.9)}
 <section class="banner" id="banner">
   <div class="slides" id="slides">
     <div class="slide claro">
-      <img src="img/banner-casal.webp" width="2200" height="894" alt="Casal usando armações redondas de acetato" fetchpriority="high">
+      <picture><source media="(max-width:700px)" srcset="img/banner-casal-mobile.webp" width="900" height="1500"><img src="img/banner-casal.webp" width="2200" height="894" alt="Casal usando armações redondas de acetato" fetchpriority="high"></picture>
       <div class="txt"><div class="vidro"><small>Ótica Yas · Jacobina-BA</small><h2>Seu novo olhar começa aqui</h2><p>Armações de grau e solar para todos os estilos,<br> com lentes feitas com a sua receita.</p><a class="btn" href="#vitrine">Ver armações</a></div></div>
     </div>
     <div class="slide">
