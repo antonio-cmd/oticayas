@@ -186,7 +186,11 @@ footer a:hover{color:#fff}
 footer .logo{align-items:flex-start;color:#fff;margin-bottom:14px}
 footer .logo small{margin-left:0}
 .sub{background:#1E0A40;color:rgba(255,255,255,.6);font-size:12px}
-.sub .c{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;padding-top:16px;padding-bottom:84px}
+.sub .c{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;padding-top:16px;padding-bottom:84px}
+.sub .feito{display:flex;align-items:center}
+.sub .feito img{height:30px;width:auto;opacity:.85;transition:opacity .2s}
+.sub .feito img:hover{opacity:1}
+@media (max-width:700px){.sub .c{flex-direction:column;align-items:flex-start}.sub .feito{margin-top:6px}}
 .flutua{position:fixed;right:18px;bottom:18px;z-index:9;width:58px;height:58px;border-radius:50%;background:var(--zap);display:grid;place-items:center;box-shadow:0 10px 26px rgba(31,175,85,.4)}
 .flutua svg{width:30px;height:30px;color:#fff}
 /* produto */
@@ -711,7 +715,7 @@ body:has(.slide.claro.ativo) .vant{background:rgba(42,15,87,.9)}
     <div><h4>Vitrine</h4><a href="#vitrine" data-aba="Grau">Óculos de grau</a><a href="#vitrine" data-aba="Solar">Óculos de sol</a><a href="#vitrine" data-aba="Infantil">Infantil</a><a href="#provar">Provador virtual</a></div>
     <div><h4>Redes</h4><a href="https://www.instagram.com/oticayas/" target="_blank" rel="noopener">Instagram @oticayas</a></div>
   </div>
-  <div class="sub"><div class="c"><span>© Ótica Yas · Jacobina-BA</span><span>Fotos de pessoas: Unsplash (ilustrativas) · Armações em 3D: demonstração</span></div></div>
+  <div class="sub"><div class="c"><span>© Ótica Yas · Jacobina-BA</span><span>Fotos de pessoas: Unsplash (ilustrativas) · Armações em 3D: demonstração</span><span class="feito"><img src="img/by-vantage.png" width="360" height="115" alt="Site feito pela Vantage" title="Site feito pela Vantage" loading="lazy"></span></div></div>
 </footer>
 <a class="flutua" data-zap="" target="_blank" rel="noopener" aria-label="Falar no WhatsApp"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm5.3 14.1c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.3-.7-2.8-1.1-4.5-3.9-4.7-4.1-.1-.2-1.1-1.5-1.1-2.9s.7-2.1 1-2.4c.3-.3.6-.3.8-.3h.6c.2 0 .4 0 .6.5l.9 2.1c.1.2.1.4 0 .6l-.4.6-.4.5c-.1.1-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.2 1.4 2.5 1.5.3.1.5.1.7-.1l.9-1.1c.2-.3.4-.2.7-.1l2 .9c.3.2.5.2.6.4.1.1.1.7-.2 1.3z"/></svg></a>
 
