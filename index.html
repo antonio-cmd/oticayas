@@ -425,6 +425,41 @@ section[id],#vitrine{scroll-margin-top:66px}
   .slide.claro p br{display:none}
   .slide.claro .btn{padding:11px 20px;font-size:13px}
 }
+/* slide do provador virtual: texto à esquerda, arte do celular à direita */
+.slide.provb{background:#fff}
+.slide.provb::after{background:none}
+.slide.provb .arte{position:absolute;inset:auto;left:auto;right:0;top:0;bottom:auto;height:calc(100% - 56px);width:auto;max-width:52vw;object-fit:contain;object-position:right center;-webkit-mask-image:none;mask-image:none;transform:none;transition:none}
+.slide.provb .txt{color:var(--forte)}
+.slide.provb small{background:var(--roxo2);color:#fff}
+.slide.provb p{color:var(--ink)}
+.slide.provb .pb-passos{list-style:none;margin:0 0 22px;padding:0;display:flex;flex-wrap:wrap;gap:12px 24px;font-size:14px;font-weight:700;color:var(--ink)}
+.slide.provb .pb-passos li{display:flex;align-items:center;gap:9px}
+.slide.provb .pb-passos span{width:28px;height:28px;border-radius:50%;background:#F1ECF9;color:var(--roxo2);display:grid;place-items:center;font-size:13px;font-weight:800}
+.slide.provb .acoes{display:flex;align-items:center;gap:16px;flex-wrap:wrap}
+.slide.provb .btn{background:var(--roxo2);border-color:var(--roxo2);color:#fff}
+.slide.provb .btn:hover{background:var(--forte);border-color:var(--forte)}
+.slide.provb .priv{display:inline-flex;align-items:center;gap:7px;font-size:13px;font-weight:600;color:#6F6A78}
+.banner:has(.slide.provb.ativo) .pontinhos button{background:rgba(30,26,36,.22)}
+.banner:has(.slide.provb.ativo) .pontinhos button.on{background:rgba(30,26,36,.18)}
+.banner:has(.slide.provb.ativo) .pontinhos button.on::after{background:var(--forte)}
+@media (min-width:901px){.slide.provb{align-items:center}.slide.provb .txt{padding-bottom:56px}}
+@media (min-width:901px) and (max-width:1279px){.slide.provb .arte{max-width:46vw}.slide.provb h2{font-size:44px}.slide.provb p{max-width:400px}.slide.provb .pb-passos{gap:10px 16px;font-size:13px}}
+/* celular e tablet: texto em cima, celular no meio, botão embaixo */
+@media (max-width:900px){
+  .slide.provb{flex-direction:column;align-items:center;justify-content:flex-start;height:auto;min-height:0;max-height:none;align-self:stretch;padding:18px 16px 86px;text-align:center}
+  .slide.provb picture,.slide.provb .txt,.slide.provb .vidro{display:contents}
+  .slide.provb .vidro>*{order:1}
+  .slide.provb .pb-passos{order:2;width:100%;max-width:420px;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:4px;margin:6px 0 4px;font-size:12.5px;font-weight:800;color:var(--forte)}
+  .slide.provb .pb-passos li{flex-direction:column;gap:5px}
+  .slide.provb .arte{order:3;position:static;flex:1 1 auto;min-height:0;width:100%;max-width:440px;height:auto;object-position:center}
+  .slide.provb .acoes{order:4;justify-content:center;margin-top:8px}
+  .slide.provb .priv{display:none}
+  .slide.provb h2{font-size:30px;margin:8px 0 6px}
+  .slide.provb p{font-size:14px;max-width:340px;margin:0 auto 4px}
+  .slide.provb .btn{padding:12px 26px;font-size:13px}
+}
+@media (max-width:700px){.slide.provb p{display:none}}
+@media (max-width:380px){.slide.provb h2{font-size:27px}.slide.provb .pb-passos{font-size:11.5px}}
 @media (max-width:760px){.pontinhos{bottom:66px}}
 .vant{position:relative;z-index:3;margin-top:-68px;background:rgba(42,15,87,.42);backdrop-filter:blur(18px) saturate(1.4);-webkit-backdrop-filter:blur(18px) saturate(1.4);border-top:1px solid rgba(255,255,255,.18)}
 @media (max-width:760px){.vant{margin-top:-52px}}
@@ -491,9 +526,9 @@ body:has(.slide.claro.ativo) .vant{background:rgba(42,15,87,.9)}
       <picture><source media="(max-width:700px)" srcset="img/banner-casal-mobile.webp" width="900" height="1500"><img src="img/banner-casal.webp" width="2200" height="894" alt="Casal usando armações redondas de acetato" fetchpriority="high"></picture>
       <div class="txt"><div class="vidro"><small>Ótica Yas · Jacobina-BA</small><h2>Seu novo olhar começa aqui</h2><p>Armações de grau e solar para todos os estilos,<br> com lentes feitas com a sua receita.</p><a class="btn" href="#vitrine">Ver armações</a></div></div>
     </div>
-    <div class="slide">
-      <img src="https://images.unsplash.com/photo-1530047139082-5435ca3c4614?auto=format&fit=crop&w=1800&h=900&q=72" alt="Duas amigas sorrindo, uma de óculos" loading="lazy">
-      <div class="txt"><div class="vidro"><small>Provador virtual</small><h2>Prove no seu rosto antes de levar</h2><p>Ligue a câmera do celular e troque de armação com um toque.</p><button class="btn branco" data-provador>Abrir provador</button></div></div>
+    <div class="slide provb">
+      <picture><source media="(max-width:900px)" srcset="img/banner-provador-mobile.webp" width="1170" height="1035"><img class="arte" src="img/banner-provador.webp" width="1920" height="1300" alt="Celular com o provador virtual aberto: cliente sorrindo com a armação Redondo Verde no rosto" loading="lazy"></picture>
+      <div class="txt"><div class="vidro"><small>Provador virtual · grátis</small><h2>Prove no seu rosto<br>antes de levar</h2><p>Ligue a câmera do celular e veja cada armação no seu rosto, acompanhando seus movimentos. Sem baixar nada.</p><ol class="pb-passos"><li><span>1</span>Ligue a câmera</li><li><span>2</span>Troque a armação</li><li><span>3</span>Mande para a Yas</li></ol><div class="acoes"><button class="btn" data-provador><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 7h4l2-2h4l2 2h4v12H4z"/><circle cx="12" cy="13" r="3.5"/></svg>Abrir provador</button><span class="priv"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg>A imagem fica só no seu aparelho</span></div></div></div>
     </div>
     <div class="slide">
       <img src="https://images.unsplash.com/photo-1542596768-5d1d21f1cf98?auto=format&fit=crop&w=1800&h=900&q=72&crop=faces" alt="Mulher sorrindo de óculos de sol" loading="lazy">
