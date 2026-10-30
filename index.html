@@ -159,15 +159,15 @@ button{font-family:inherit}
 .insta p{margin:6px 0 18px;color:var(--muted)}
 .ig-carro{position:relative;max-width:1180px;margin:0 auto 26px;text-align:left}
 .ig-trilha{display:flex;gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;scroll-padding:0 4px;padding:4px 4px 14px;scrollbar-width:thin;-webkit-overflow-scrolling:touch}
-.ig-item{flex:0 0 340px;scroll-snap-align:start;min-height:420px;border-radius:14px;background:var(--cinza);display:flex;align-items:flex-start;justify-content:center;overflow:hidden}
-.ig-item .instagram-media{margin:0!important;min-width:326px!important;width:100%!important;max-width:340px!important;border-radius:14px!important;box-shadow:none!important;border:1px solid var(--line)!important}
-.ig-item blockquote.instagram-media{display:grid;place-items:center;min-height:420px;background:#fff}
+.ig-item{--topo:54px;position:relative;flex:0 0 326px;aspect-ratio:1;scroll-snap-align:start;border-radius:14px;background:var(--cinza);overflow:hidden}
+.ig-item .instagram-media,.ig-item iframe.instagram-media{position:absolute!important;left:0;top:calc(var(--topo) * -1);margin:0!important;min-width:0!important;width:100%!important;max-width:none!important;border:0!important;border-radius:0!important;box-shadow:none!important;padding:0!important}
+.ig-item blockquote.instagram-media{top:0;inset:0;display:grid;place-items:center;background:#fff}
 .ig-item blockquote.instagram-media a{color:var(--roxo2);font-weight:700;text-decoration:none}
-.ig-seta{position:absolute;top:190px;z-index:2;width:44px;height:44px;border-radius:50%;border:1px solid var(--line);background:#fff;color:var(--forte);display:grid;place-items:center;cursor:pointer;box-shadow:0 6px 18px rgba(30,26,36,.12)}
+.ig-seta{position:absolute;top:128px;z-index:2;width:44px;height:44px;border-radius:50%;border:1px solid var(--line);background:#fff;color:var(--forte);display:grid;place-items:center;cursor:pointer;box-shadow:0 6px 18px rgba(30,26,36,.12)}
 .ig-seta svg{width:20px;height:20px}
 .ig-seta.e{left:-22px}.ig-seta.d{right:-22px}
 @media (max-width:1240px){.ig-seta.e{left:4px}.ig-seta.d{right:4px}}
-@media (max-width:700px){.ig-seta{display:none}.ig-item{flex-basis:min(340px,86vw)}.ig-item .instagram-media{min-width:0!important}.ig-trilha{margin:0 -16px;padding:4px 16px 14px;scroll-padding:0 16px}}
+@media (max-width:700px){.ig-seta{display:none}.ig-item{flex-basis:min(326px,86vw)}.ig-trilha{margin:0 -16px;padding:4px 16px 14px;scroll-padding:0 16px}}
 /* texto + faq */
 .sobre{max-width:860px;margin:0 auto}
 .sobre h2{font-size:clamp(20px,2.4vw,26px);font-weight:800;color:var(--forte);margin:0 0 12px}
