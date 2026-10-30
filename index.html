@@ -428,7 +428,6 @@ section[id],#vitrine{scroll-margin-top:66px}
 /* slide do provador virtual: texto à esquerda, arte do celular à direita */
 .slide.provb{background:#fff}
 .slide.provb::after{background:none}
-.slide.provb .arte{position:absolute;inset:auto;left:auto;right:0;top:0;bottom:auto;height:calc(100% - 56px);width:auto;max-width:52vw;object-fit:contain;object-position:right center;-webkit-mask-image:none;mask-image:none;transform:none;transition:none}
 .slide.provb .txt{color:var(--forte)}
 .slide.provb small{background:var(--roxo2);color:#fff}
 .slide.provb p{color:var(--ink)}
@@ -443,16 +442,105 @@ section[id],#vitrine{scroll-margin-top:66px}
 .banner:has(.slide.provb.ativo) .pontinhos button.on{background:rgba(30,26,36,.18)}
 .banner:has(.slide.provb.ativo) .pontinhos button.on::after{background:var(--forte)}
 @media (min-width:901px){.slide.provb{align-items:center}.slide.provb .txt{padding-bottom:56px}}
-@media (min-width:901px) and (max-width:1279px){.slide.provb .arte{max-width:46vw}.slide.provb h2{font-size:44px}.slide.provb p{max-width:400px}.slide.provb .pb-passos{gap:10px 16px;font-size:13px}}
+@media (min-width:901px) and (max-width:1279px){.slide.provb h2{font-size:44px}.slide.provb p{max-width:400px}.slide.provb .pb-passos{gap:10px 16px;font-size:13px}}
+
+/* arte do provador feita em código (nítida e animada); medidas em cqw da cena */
+.slide.provb .pb-arte{position:absolute;right:0;top:0;height:calc(100% - 56px);width:52vw;container-type:size;display:flex;align-items:center;justify-content:flex-end;pointer-events:none}
+.pb-cena{position:relative;text-align:left;line-height:1.25;width:min(100cqw,147.7cqh);aspect-ratio:960/650;container-type:inline-size;font-family:"Plus Jakarta Sans",sans-serif;flex:none}
+.pb-cena>*{position:absolute;display:block}
+.pb-brilho{left:10.42cqw;top:-14.58cqw;width:79.17cqw;height:79.17cqw;border-radius:50%;background:radial-gradient(circle,rgba(185,156,255,.32) 0%,rgba(185,156,255,.08) 45%,rgba(185,156,255,0) 70%)}
+.pb-painel{left:13.54cqw;top:0;width:86.46cqw;height:67.71cqw;border-radius:33.85cqw 0 0 33.85cqw;background:radial-gradient(120% 140% at 0% 100%,#5B2EA6 0%,#3D1A78 42%,#2A0F57 100%)}
+.pb-anel{border-radius:50%;border:1px solid rgba(255,255,255,.08)}
+.pb-anel.a1{left:18.75cqw;top:7.29cqw;width:62.5cqw;height:62.5cqw}
+.pb-anel.a2{left:26.04cqw;top:14.58cqw;width:47.92cqw;height:47.92cqw;border-color:rgba(255,255,255,.06)}
+.pb-sombra{left:19.79cqw;top:60.21cqw;width:39.58cqw;height:4.17cqw;border-radius:50%;background:radial-gradient(ellipse,rgba(10,3,25,.55) 0%,rgba(10,3,25,0) 70%);animation:pbSombra 6s ease-in-out infinite}
+.pb-fone{left:28.02cqw;top:4.69cqw;width:28.33cqw;height:58.33cqw;animation:pbFlutua 6s ease-in-out infinite}
+.pb-corpo{position:absolute;inset:0;border-radius:4.79cqw;padding:1.04cqw;background:linear-gradient(145deg,#5a5068 0%,#2a2333 30%,#17111f 70%,#3d3448 100%);box-shadow:-.6cqw .6cqw 0 #120a20,0 4cqw 8cqw rgba(8,2,22,.55);transform:rotate(3deg)}
+.pb-btn{position:absolute;width:.4cqw;border-radius:.3cqw;background:#3a2f4a}
+.pb-btn.b1{left:-.3cqw;top:12.5cqw;height:3.5cqw}.pb-btn.b2{left:-.3cqw;top:17.5cqw;height:6cqw}.pb-btn.b3{right:-.3cqw;top:15.6cqw;height:8.3cqw}
+.pb-tela{position:relative;width:100%;height:100%;border-radius:3.85cqw;overflow:hidden;background:#F8F1E9;container-type:inline-size;color:#fff}
+.pb-tela>*{position:absolute}
+.pb-tela img{inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 22%;animation:pbCam 9s ease-in-out infinite}
+.pb-ilha{left:50%;top:3.97cqw;transform:translateX(-50%);width:33.33cqw;height:9.52cqw;border-radius:5.6cqw;background:#0b0710}
+.pb-topo{left:4.76cqw;right:4.76cqw;top:17.46cqw;display:flex;justify-content:space-between;font-size:3.97cqw;font-weight:700}
+.pb-topo span{background:rgba(20,10,36,.62);padding:2.38cqw 3.97cqw;border-radius:99px;display:inline-flex;align-items:center;gap:2.38cqw}
+.pb-vivo{font-weight:800;letter-spacing:.06em;text-transform:uppercase}
+.pb-vivo i{width:2.38cqw;height:2.38cqw;border-radius:50%;background:#FF5A5A;animation:pbPisca 1.4s ease-in-out infinite}
+.pb-mira{left:13.49cqw;top:41.27cqw;width:77.78cqw;height:81.75cqw;animation:pbMira 3.2s ease-in-out infinite}
+.pb-mira i{position:absolute;width:8.73cqw;height:8.73cqw;border:0 solid #fff}
+.pb-mira i:nth-child(1){left:0;top:0;border-width:1.19cqw 0 0 1.19cqw;border-top-left-radius:3.17cqw}
+.pb-mira i:nth-child(2){right:0;top:0;border-width:1.19cqw 1.19cqw 0 0;border-top-right-radius:3.17cqw}
+.pb-mira i:nth-child(3){left:0;bottom:0;border-width:0 0 1.19cqw 1.19cqw;border-bottom-left-radius:3.17cqw}
+.pb-mira i:nth-child(4){right:0;bottom:0;border-width:0 1.19cqw 1.19cqw 0;border-bottom-right-radius:3.17cqw}
+.pb-scan{left:17.46cqw;width:69.84cqw;height:.8cqw;top:58%;background:linear-gradient(90deg,rgba(185,156,255,0),rgba(185,156,255,.95),rgba(185,156,255,0));box-shadow:0 0 4.8cqw rgba(185,156,255,.9);animation:pbScan 3.2s ease-in-out infinite}
+.pb-esc{left:0;right:0;bottom:0;height:77.78cqw;background:linear-gradient(180deg,rgba(20,10,36,0) 0%,rgba(20,10,36,.78) 34%,rgba(20,10,36,.92) 100%)}
+.pb-nome{left:5.56cqw;right:5.56cqw;bottom:48.41cqw;display:flex;flex-direction:column;gap:.8cqw}
+.slide.provb .pb-nome small{display:block;background:none;padding:0;margin:0;border-radius:0;font-size:3.97cqw;font-weight:700;color:#CFC4E6;letter-spacing:.06em;text-transform:uppercase}
+.pb-nome b{font-size:5.95cqw;font-weight:800;line-height:1.2}
+.pb-miniaturas{left:3.97cqw;right:3.97cqw;bottom:27.78cqw;display:flex;gap:2.78cqw;justify-content:center}
+.pb-miniaturas span{width:20.63cqw;height:15.87cqw;border-radius:3.97cqw;background:rgba(255,255,255,.16);display:grid;place-items:center;color:#fff}
+.pb-miniaturas span.on{background:#fff;color:#1E5E52;box-shadow:0 0 0 .8cqw #fff,0 0 0 1.6cqw #F28C28}
+.pb-miniaturas svg{width:15.08cqw;height:6.35cqw}
+.pb-controles{left:0;right:0;bottom:5.56cqw;display:flex;align-items:center;justify-content:space-between;padding:0 7.14cqw}
+.pb-gira,.pb-zap{width:13.49cqw;height:13.49cqw;border-radius:50%;background:rgba(255,255,255,.16);display:grid;place-items:center}
+.pb-zap{background:#1FAF55}
+.pb-gira svg,.pb-zap svg{width:6.35cqw;height:6.35cqw}
+.pb-foto{width:19.05cqw;height:19.05cqw;border-radius:50%;border:1.19cqw solid #fff;display:grid;place-items:center;box-sizing:border-box}
+.pb-foto i{width:14.29cqw;height:14.29cqw;border-radius:50%;background:#fff;animation:pbDispara 6s ease-in-out infinite}
+.pb-flash{inset:0;background:#fff;opacity:0;animation:pbFlash 6s ease-in-out infinite}
+.pb-reflexo{inset:0;background:linear-gradient(120deg,rgba(255,255,255,.16) 0%,rgba(255,255,255,0) 32%)}
+.pb-chip{display:inline-flex!important;align-items:center;white-space:nowrap;color:#fff;font-weight:700;border-radius:99px}
+.pb-chip svg{flex:none}
+.pb-chip.troque{left:57.4cqw;top:12.71cqw;gap:.83cqw;padding:.83cqw 1.25cqw;font-size:1.25cqw;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.18)}
+.pb-chip.troque svg{width:1.67cqw;height:1.67cqw}
+.pb-chip.teste{display:none!important}
+.pb-card{display:flex!important;align-items:center;white-space:nowrap;background:#fff;color:#1E1A24;left:5.21cqw;top:20.42cqw;gap:1.25cqw;padding:1.25cqw 1.67cqw 1.25cqw 1.25cqw;border-radius:1.46cqw;border:1px solid #ECE7F4;box-shadow:0 1.9cqw 4.2cqw rgba(42,15,87,.22);animation:pbFlutua 5s ease-in-out infinite}
+.pb-card.foto{left:59.38cqw;top:40.83cqw;border:0;box-shadow:0 1.9cqw 4.2cqw rgba(10,3,25,.35);animation:pbFlutua 6s ease-in-out .8s infinite,pbChega 6s ease-in-out infinite}
+.pb-card .ic{width:3.75cqw;height:3.75cqw;border-radius:1.04cqw;background:#E5F5EC;display:grid;place-items:center;flex:none}
+.pb-card.foto .ic{background:#EAF7EF}
+.pb-card .ic svg{width:2.08cqw;height:2.08cqw}
+.pb-card>span:last-child{display:flex;flex-direction:column}
+.pb-card b{font-size:1.46cqw;font-weight:700}
+.pb-card em{font-style:normal;font-size:1.25cqw;color:#6f6a78}
+@keyframes pbFlutua{0%,100%{translate:0 0}50%{translate:0 -1.2%}}
+@keyframes pbSombra{0%,100%{opacity:1;scale:1}50%{opacity:.75;scale:.94}}
+@keyframes pbScan{0%,100%{top:30%}50%{top:52%}}
+@keyframes pbMira{0%,100%{scale:1}50%{scale:1.035}}
+@keyframes pbPisca{0%,100%{opacity:1}50%{opacity:.25}}
+@keyframes pbCam{0%,100%{scale:1.02;translate:0 0}50%{scale:1.06;translate:-1% 1%}}
+@keyframes pbDispara{0%,72%,84%,100%{scale:1}76%{scale:.78}}
+@keyframes pbFlash{0%,74%,90%,100%{opacity:0}77%{opacity:.85}}
+@keyframes pbChega{0%,76%{scale:1}82%{scale:1.08}88%,100%{scale:1}}
+@media (min-width:901px) and (max-width:1279px){.slide.provb .pb-arte{width:46vw}}
+/* celular e tablet: celular centralizado sobre o círculo */
+@media (max-width:900px){
+  .slide.provb .pb-arte{order:3;position:relative;inset:auto;flex:1 1 auto;min-height:0;width:100%;height:auto;justify-content:center;margin-top:4px}
+  .pb-cena{width:min(100cqw,113cqh,440px);aspect-ratio:390/345}
+  .pb-brilho,.pb-anel.a1,.pb-chip.troque{display:none!important}
+  .pb-painel{left:12.82cqw;top:5.9cqw;width:74.36cqw;height:74.36cqw;border-radius:50%;background:radial-gradient(120% 120% at 20% 90%,#5B2EA6 0%,#3D1A78 45%,#2A0F57 100%)}
+  .pb-anel.a2{left:20cqw;top:13.08cqw;width:60cqw;height:60cqw;border-color:rgba(255,255,255,.07)}
+  .pb-sombra{left:28.21cqw;top:81.79cqw;width:43.59cqw;height:5.64cqw;background:radial-gradient(ellipse,rgba(42,15,87,.45) 0%,rgba(42,15,87,0) 70%)}
+  .pb-fone{left:29.49cqw;top:1.28cqw;width:41.03cqw;height:83.08cqw}
+  .pb-corpo{border-radius:7.2cqw;padding:1.54cqw;transform:rotate(4deg);box-shadow:-.8cqw .8cqw 0 #120a20,0 5.6cqw 11cqw rgba(20,8,50,.45)}
+  .pb-tela{border-radius:5.64cqw}
+  .pb-chip.teste{display:inline-flex!important;right:1.54cqw;top:1.28cqw;gap:1.54cqw;padding:1.79cqw 2.82cqw;font-size:2.69cqw;background:#3D1A78;box-shadow:0 2cqw 5cqw rgba(42,15,87,.3)}
+  .pb-chip.teste svg{width:3.08cqw;height:3.08cqw}
+  .pb-card{left:2.56cqw;top:27.95cqw;gap:2.05cqw;padding:2.05cqw 3.08cqw 2.05cqw 2.05cqw;border-radius:3.08cqw;box-shadow:0 3cqw 7cqw rgba(42,15,87,.22)}
+  .pb-card.foto{left:auto;right:2.05cqw;top:54.1cqw;border:1px solid #ECE7F4;box-shadow:0 3cqw 7cqw rgba(42,15,87,.22)}
+  .pb-card .ic{width:6.67cqw;height:6.67cqw;border-radius:2.05cqw}
+  .pb-card .ic svg{width:3.6cqw;height:3.6cqw}
+  .pb-card b{font-size:2.95cqw}
+  .pb-card em{font-size:2.44cqw}
+}
+@media (prefers-reduced-motion:reduce){.pb-cena *{animation:none!important}}
 /* celular e tablet: texto em cima, celular no meio, botão embaixo */
 @media (max-width:900px){
   .slide.provb{flex-direction:column;align-items:center;justify-content:flex-start;height:auto;min-height:0;max-height:none;align-self:stretch;padding:18px 16px 86px;text-align:center}
-  .slide.provb picture,.slide.provb .txt,.slide.provb .vidro{display:contents}
+  .slide.provb .txt,.slide.provb .vidro{display:contents}
   .slide.provb .vidro>*{order:1}
   .slide.provb .pb-passos{order:2;width:100%;max-width:420px;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:4px;margin:6px 0 4px;font-size:12.5px;font-weight:800;color:var(--forte)}
   .slide.provb .pb-passos li{flex-direction:column;gap:5px}
-  .slide.provb .arte{order:3;position:static;flex:1 1 auto;min-height:0;width:100%;max-width:440px;height:auto;object-position:center}
-  .slide.provb .acoes{order:4;justify-content:center;margin-top:8px}
+    .slide.provb .acoes{order:4;justify-content:center;margin-top:8px}
   .slide.provb .priv{display:none}
   .slide.provb h2{font-size:30px;margin:8px 0 6px}
   .slide.provb p{font-size:14px;max-width:340px;margin:0 auto 4px}
@@ -527,7 +615,24 @@ body:has(.slide.claro.ativo) .vant{background:rgba(42,15,87,.9)}
       <div class="txt"><div class="vidro"><small>Ótica Yas · Jacobina-BA</small><h2>Seu novo olhar começa aqui</h2><p>Armações de grau e solar para todos os estilos,<br> com lentes feitas com a sua receita.</p><a class="btn" href="#vitrine">Ver armações</a></div></div>
     </div>
     <div class="slide provb">
-      <picture><source media="(max-width:900px)" srcset="img/banner-provador-mobile.webp" width="1170" height="1035"><img class="arte" src="img/banner-provador.webp" width="1920" height="1300" alt="Celular com o provador virtual aberto: cliente sorrindo com a armação Redondo Verde no rosto" loading="lazy"></picture>
+      <div class="pb-arte" role="img" aria-label="Celular com o provador virtual aberto: cliente sorrindo com a armação Redondo Verde no rosto"><div class="pb-cena">
+        <span class="pb-brilho"></span><span class="pb-painel"></span><span class="pb-anel a1"></span><span class="pb-anel a2"></span><span class="pb-sombra"></span>
+        <div class="pb-fone"><div class="pb-corpo"><span class="pb-btn b1"></span><span class="pb-btn b2"></span><span class="pb-btn b3"></span><div class="pb-tela">
+          <img src="img/provador-tela.webp" width="840" height="1798" alt="" loading="lazy" decoding="async">
+          <span class="pb-ilha"></span>
+          <div class="pb-topo"><span class="pb-vivo"><i></i>Ao vivo</span><span>Ótica Yas</span></div>
+          <div class="pb-mira"><i></i><i></i><i></i><i></i></div><span class="pb-scan"></span>
+          <span class="pb-esc"></span>
+          <div class="pb-nome"><small>Provando agora</small><b>Redondo Verde</b></div>
+          <div class="pb-miniaturas"><span class="on"><svg viewBox="0 0 120 48" fill="none" stroke="currentColor" stroke-width="6" stroke-linejoin="round" stroke-linecap="round" aria-hidden="true"><circle cx="34" cy="26" r="16"/><circle cx="86" cy="26" r="16"/><path d="M50 23 Q60 16 70 23"/></svg></span><span><svg viewBox="0 0 120 48" fill="none" stroke="currentColor" stroke-width="6" stroke-linejoin="round" stroke-linecap="round" aria-hidden="true"><path d="M12 14 Q30 10 50 15 Q54 17 52 26 Q48 40 34 40 Q18 40 15 28 Q13 21 12 14 Z M108 14 Q90 10 70 15 Q66 17 68 26 Q72 40 86 40 Q102 40 105 28 Q107 21 108 14 Z"/></svg></span><span><svg viewBox="0 0 120 48" fill="none" stroke="currentColor" stroke-width="6" stroke-linejoin="round" stroke-linecap="round" aria-hidden="true"><rect x="14" y="11" width="40" height="29" rx="6"/><rect x="66" y="11" width="40" height="29" rx="6"/></svg></span><span><svg viewBox="0 0 120 48" fill="none" stroke="currentColor" stroke-width="6" stroke-linejoin="round" stroke-linecap="round" aria-hidden="true"><path d="M15 15 L51 15 Q55 17 53 26 Q49 43 32 43 Q16 41 15 27 Z M105 15 L69 15 Q65 17 67 26 Q71 43 88 43 Q104 41 105 27 Z"/></svg></span></div>
+          <div class="pb-controles"><span class="pb-gira"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4v6h6M20 20v-6h-6M5.5 15a7 7 0 0 0 12.4 2M18.5 9A7 7 0 0 0 6.1 7"/></svg></span><span class="pb-foto"><i></i></span><span class="pb-zap"><svg viewBox="0 0 24 24" fill="#fff" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2z"/></svg></span></div>
+          <span class="pb-flash"></span><span class="pb-reflexo"></span>
+        </div></div></div>
+        <span class="pb-chip troque"><svg viewBox="0 0 24 24" fill="none" stroke="#F28C28" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 11l5-5 5 5M12 6v13"/></svg>Troque com um toque</span>
+        <span class="pb-chip teste"><svg viewBox="0 0 24 24" fill="#F28C28" aria-hidden="true"><path d="M12 2l2.2 7.8L22 12l-7.8 2.2L12 22l-2.2-7.8L2 12l7.8-2.2z"/></svg>Teste com sua câmera</span>
+        <div class="pb-card rosto"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#0F6B3D" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg></span><span><b>Rosto encontrado</b><em>A armação segue você</em></span></div>
+        <div class="pb-card foto"><span class="ic"><svg viewBox="0 0 24 24" fill="#1FAF55" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2z"/></svg></span><span><b>Foto para a Yas</b><em>Ela te ajuda a escolher</em></span></div>
+      </div></div>
       <div class="txt"><div class="vidro"><small>Provador virtual · grátis</small><h2>Prove no seu rosto<br>antes de levar</h2><p>Ligue a câmera do celular e veja cada armação no seu rosto, acompanhando seus movimentos. Sem baixar nada.</p><ol class="pb-passos"><li><span>1</span>Ligue a câmera</li><li><span>2</span>Troque a armação</li><li><span>3</span>Mande para a Yas</li></ol><div class="acoes"><button class="btn" data-provador><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 7h4l2-2h4l2 2h4v12H4z"/><circle cx="12" cy="13" r="3.5"/></svg>Abrir provador</button><span class="priv"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg>A imagem fica só no seu aparelho</span></div></div></div>
     </div>
     <div class="slide">
