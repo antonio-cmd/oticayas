@@ -154,20 +154,19 @@ button{font-family:inherit}
 .vcard span svg{width:16px;height:16px;color:var(--roxo3);flex:none}
 .nota{font-size:12px;color:var(--muted);text-align:center;margin:14px 0 0}
 /* instagram */
-.insta{text-align:center}
-.insta a.arroba{font-size:clamp(26px,4vw,40px);font-weight:800;color:var(--roxo2);text-decoration:none}
-.insta p{margin:6px 0 18px;color:var(--muted)}
-.ig-carro{position:relative;max-width:1180px;margin:0 auto 26px;text-align:left}
-.ig-trilha{display:flex;gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;scroll-padding:0 4px;padding:4px 4px 14px;scrollbar-width:none;-webkit-overflow-scrolling:touch}.ig-trilha::-webkit-scrollbar{display:none}
-.ig-item{--topo:54px;position:relative;flex:0 0 326px;aspect-ratio:1;scroll-snap-align:start;border-radius:14px;background:var(--cinza);overflow:hidden}
-.ig-item .instagram-media,.ig-item iframe.instagram-media{position:absolute!important;left:0;top:calc(var(--topo) * -1);margin:0!important;min-width:0!important;width:100%!important;max-width:none!important;border:0!important;border-radius:0!important;box-shadow:none!important;padding:0!important}
-.ig-item blockquote.instagram-media{top:0;inset:0;display:grid;place-items:center;background:#fff}
-.ig-item blockquote.instagram-media a{color:var(--roxo2);font-weight:700;text-decoration:none}
-.ig-seta{position:absolute;top:128px;z-index:2;width:44px;height:44px;border-radius:50%;border:1px solid var(--line);background:#fff;color:var(--forte);display:grid;place-items:center;cursor:pointer;box-shadow:0 6px 18px rgba(30,26,36,.12)}
-.ig-seta svg{width:20px;height:20px}
-.ig-seta.e{left:-22px}.ig-seta.d{right:-22px}
-@media (max-width:1240px){.ig-seta.e{left:4px}.ig-seta.d{right:4px}}
-@media (max-width:700px){.ig-seta{display:none}.ig-item{flex-basis:min(326px,86vw)}.ig-trilha{margin:0 -16px;padding:4px 16px 14px;scroll-padding:0 16px}}
+.ig-tit{font-size:clamp(20px,2.4vw,28px);font-weight:500;letter-spacing:-.01em;margin:0 0 18px;color:var(--ink);text-transform:none}
+.ig-tit a{font-weight:800;color:var(--forte);text-decoration:none}
+.ig-tit a:hover{color:var(--roxo2)}
+.ig-faixa{overflow:hidden;padding:0 0 6px;-webkit-mask-image:linear-gradient(90deg,transparent 0,#000 3%,#000 97%,transparent 100%);mask-image:linear-gradient(90deg,transparent 0,#000 3%,#000 97%,transparent 100%)}
+.ig-rolo{display:flex;gap:13px;width:max-content;animation:igRola 55s linear infinite}
+.ig-faixa:hover .ig-rolo{animation-play-state:paused}
+.ig-capa{position:relative;flex:none;width:212px;aspect-ratio:4/5;border-radius:6px;overflow:hidden;background:var(--cinza);display:block}
+.ig-capa img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .5s ease}
+.ig-capa:hover img{transform:scale(1.05)}
+.ig-capa .play{position:absolute;right:10px;top:10px;width:22px;height:22px;filter:drop-shadow(0 1px 3px rgba(0,0,0,.45))}
+@keyframes igRola{to{transform:translateX(calc(-50% - 6.5px))}}
+@media (max-width:700px){.ig-capa{width:150px}.ig-rolo{gap:10px;animation-duration:42s}@keyframes igRola{to{transform:translateX(calc(-50% - 5px))}}}
+@media (prefers-reduced-motion:reduce){.ig-rolo{animation:none}.ig-faixa{overflow-x:auto}}
 /* texto + faq */
 .sobre{max-width:860px;margin:0 auto}
 .sobre h2{font-size:clamp(20px,2.4vw,26px);font-weight:800;color:var(--forte);margin:0 0 12px}
@@ -739,28 +738,9 @@ body:has(.slide.claro.ativo) .vant{background:rgba(42,15,87,.9)}
 
 <section class="sec insta" style="padding-top:8px">
   <div class="c">
-    <h2 class="tit" style="margin-bottom:6px">Siga a gente no Instagram!</h2>
-    <a class="arroba" href="https://www.instagram.com/oticayas/" target="_blank" rel="noopener">@oticayas</a>
-    <p>Novidades, modelos que chegaram e fotos de quem já passou pela Yas.</p>
-    <div class="ig-carro">
-      <button class="ig-seta e" type="button" aria-label="Posts anteriores"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="m15 18-6-6 6-6"/></svg></button>
-      <div class="ig-trilha" id="igTrilha">
-        <div class="ig-item"><blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/DfDkCG-ESND/?utm_source=ig_embed" data-instgrm-version="14"><a href="https://www.instagram.com/p/DfDkCG-ESND/" target="_blank" rel="noopener">Ver no Instagram</a></blockquote></div>
-        <div class="ig-item"><blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/Deut5FVGXeq/?utm_source=ig_embed" data-instgrm-version="14"><a href="https://www.instagram.com/p/Deut5FVGXeq/" target="_blank" rel="noopener">Ver no Instagram</a></blockquote></div>
-        <div class="ig-item"><blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/Det6VJ6RG--/?utm_source=ig_embed" data-instgrm-version="14"><a href="https://www.instagram.com/reel/Det6VJ6RG--/" target="_blank" rel="noopener">Ver no Instagram</a></blockquote></div>
-        <div class="ig-item"><blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/DenReBBRN6n/?utm_source=ig_embed" data-instgrm-version="14"><a href="https://www.instagram.com/p/DenReBBRN6n/" target="_blank" rel="noopener">Ver no Instagram</a></blockquote></div>
-        <div class="ig-item"><blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/DejnD_lkeYs/?utm_source=ig_embed" data-instgrm-version="14"><a href="https://www.instagram.com/p/DejnD_lkeYs/" target="_blank" rel="noopener">Ver no Instagram</a></blockquote></div>
-        <div class="ig-item"><blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/DehrwD-FO9F/?utm_source=ig_embed" data-instgrm-version="14"><a href="https://www.instagram.com/p/DehrwD-FO9F/" target="_blank" rel="noopener">Ver no Instagram</a></blockquote></div>
-        <div class="ig-item"><blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/DecfGu0i9Yy/?utm_source=ig_embed" data-instgrm-version="14"><a href="https://www.instagram.com/p/DecfGu0i9Yy/" target="_blank" rel="noopener">Ver no Instagram</a></blockquote></div>
-        <div class="ig-item"><blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/DeNkEioRZUs/?utm_source=ig_embed" data-instgrm-version="14"><a href="https://www.instagram.com/p/DeNkEioRZUs/" target="_blank" rel="noopener">Ver no Instagram</a></blockquote></div>
-        <div class="ig-item"><blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/DdjsH6-kcoE/?utm_source=ig_embed" data-instgrm-version="14"><a href="https://www.instagram.com/p/DdjsH6-kcoE/" target="_blank" rel="noopener">Ver no Instagram</a></blockquote></div>
-        <div class="ig-item"><blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/DdToUauxplc/?utm_source=ig_embed" data-instgrm-version="14"><a href="https://www.instagram.com/p/DdToUauxplc/" target="_blank" rel="noopener">Ver no Instagram</a></blockquote></div>
-        <div class="ig-item"><blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/DdM8GEFEZ5G/?utm_source=ig_embed" data-instgrm-version="14"><a href="https://www.instagram.com/p/DdM8GEFEZ5G/" target="_blank" rel="noopener">Ver no Instagram</a></blockquote></div>
-      </div>
-      <button class="ig-seta d" type="button" aria-label="Próximos posts"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="m9 6 6 6-6 6"/></svg></button>
-    </div>
-    <a class="btn" href="https://www.instagram.com/oticayas/" target="_blank" rel="noopener">Seguir no Instagram</a>
+    <h2 class="ig-tit">Siga-nos no Instagram! <a href="https://www.instagram.com/oticayas/" target="_blank" rel="noopener">@oticayas</a></h2>
   </div>
+  <div class="ig-faixa"><div class="ig-rolo"><a class="ig-capa" href="https://www.instagram.com/p/DfDkCG-ESND/" target="_blank" rel="noopener"><img src="img/insta/DfDkCG-ESND.webp" width="392" height="490" alt="Post da Ótica Yas no Instagram" loading="lazy" decoding="async"></a><a class="ig-capa" href="https://www.instagram.com/p/Deut5FVGXeq/" target="_blank" rel="noopener"><img src="img/insta/Deut5FVGXeq.webp" width="392" height="490" alt="Post da Ótica Yas no Instagram" loading="lazy" decoding="async"></a><a class="ig-capa" href="https://www.instagram.com/reel/Det6VJ6RG--/" target="_blank" rel="noopener"><img src="img/insta/Det6VJ6RG--.webp" width="392" height="490" alt="Vídeo da Ótica Yas no Instagram" loading="lazy" decoding="async"><svg class="play" viewBox="0 0 24 24" fill="#fff" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></a><a class="ig-capa" href="https://www.instagram.com/p/DenReBBRN6n/" target="_blank" rel="noopener"><img src="img/insta/DenReBBRN6n.webp" width="392" height="490" alt="Post da Ótica Yas no Instagram" loading="lazy" decoding="async"></a><a class="ig-capa" href="https://www.instagram.com/p/DejnD_lkeYs/" target="_blank" rel="noopener"><img src="img/insta/DejnD_lkeYs.webp" width="392" height="490" alt="Post da Ótica Yas no Instagram" loading="lazy" decoding="async"></a><a class="ig-capa" href="https://www.instagram.com/p/DehrwD-FO9F/" target="_blank" rel="noopener"><img src="img/insta/DehrwD-FO9F.webp" width="392" height="490" alt="Post da Ótica Yas no Instagram" loading="lazy" decoding="async"></a><a class="ig-capa" href="https://www.instagram.com/p/DecfGu0i9Yy/" target="_blank" rel="noopener"><img src="img/insta/DecfGu0i9Yy.webp" width="392" height="490" alt="Post da Ótica Yas no Instagram" loading="lazy" decoding="async"></a><a class="ig-capa" href="https://www.instagram.com/p/DeNkEioRZUs/" target="_blank" rel="noopener"><img src="img/insta/DeNkEioRZUs.webp" width="392" height="490" alt="Post da Ótica Yas no Instagram" loading="lazy" decoding="async"></a><a class="ig-capa" href="https://www.instagram.com/p/DdjsH6-kcoE/" target="_blank" rel="noopener"><img src="img/insta/DdjsH6-kcoE.webp" width="392" height="490" alt="Post da Ótica Yas no Instagram" loading="lazy" decoding="async"></a><a class="ig-capa" href="https://www.instagram.com/p/DdToUauxplc/" target="_blank" rel="noopener"><img src="img/insta/DdToUauxplc.webp" width="392" height="490" alt="Post da Ótica Yas no Instagram" loading="lazy" decoding="async"></a><a class="ig-capa" href="https://www.instagram.com/p/DdM8GEFEZ5G/" target="_blank" rel="noopener"><img src="img/insta/DdM8GEFEZ5G.webp" width="392" height="490" alt="Post da Ótica Yas no Instagram" loading="lazy" decoding="async"></a><a class="ig-capa" href="https://www.instagram.com/p/DfDkCG-ESND/" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1"><img src="img/insta/DfDkCG-ESND.webp" width="392" height="490" alt="Post da Ótica Yas no Instagram" loading="lazy" decoding="async"></a><a class="ig-capa" href="https://www.instagram.com/p/Deut5FVGXeq/" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1"><img src="img/insta/Deut5FVGXeq.webp" width="392" height="490" alt="Post da Ótica Yas no Instagram" loading="lazy" decoding="async"></a><a class="ig-capa" href="https://www.instagram.com/reel/Det6VJ6RG--/" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1"><img src="img/insta/Det6VJ6RG--.webp" width="392" height="490" alt="Vídeo da Ótica Yas no Instagram" loading="lazy" decoding="async"><svg class="play" viewBox="0 0 24 24" fill="#fff" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></a><a class="ig-capa" href="https://www.instagram.com/p/DenReBBRN6n/" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1"><img src="img/insta/DenReBBRN6n.webp" width="392" height="490" alt="Post da Ótica Yas no Instagram" loading="lazy" decoding="async"></a><a class="ig-capa" href="https://www.instagram.com/p/DejnD_lkeYs/" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1"><img src="img/insta/DejnD_lkeYs.webp" width="392" height="490" alt="Post da Ótica Yas no Instagram" loading="lazy" decoding="async"></a><a class="ig-capa" href="https://www.instagram.com/p/DehrwD-FO9F/" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1"><img src="img/insta/DehrwD-FO9F.webp" width="392" height="490" alt="Post da Ótica Yas no Instagram" loading="lazy" decoding="async"></a><a class="ig-capa" href="https://www.instagram.com/p/DecfGu0i9Yy/" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1"><img src="img/insta/DecfGu0i9Yy.webp" width="392" height="490" alt="Post da Ótica Yas no Instagram" loading="lazy" decoding="async"></a><a class="ig-capa" href="https://www.instagram.com/p/DeNkEioRZUs/" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1"><img src="img/insta/DeNkEioRZUs.webp" width="392" height="490" alt="Post da Ótica Yas no Instagram" loading="lazy" decoding="async"></a><a class="ig-capa" href="https://www.instagram.com/p/DdjsH6-kcoE/" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1"><img src="img/insta/DdjsH6-kcoE.webp" width="392" height="490" alt="Post da Ótica Yas no Instagram" loading="lazy" decoding="async"></a><a class="ig-capa" href="https://www.instagram.com/p/DdToUauxplc/" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1"><img src="img/insta/DdToUauxplc.webp" width="392" height="490" alt="Post da Ótica Yas no Instagram" loading="lazy" decoding="async"></a><a class="ig-capa" href="https://www.instagram.com/p/DdM8GEFEZ5G/" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1"><img src="img/insta/DdM8GEFEZ5G.webp" width="392" height="490" alt="Post da Ótica Yas no Instagram" loading="lazy" decoding="async"></a></div></div>
 </section>
 
 <section class="sec" id="local" style="padding-top:8px">
@@ -1402,7 +1382,7 @@ function anima(els, tipo){
     obsAnim ? obsAnim.observe(el) : el.classList.add("on");
   });
 }
-anima(document.querySelectorAll("#home .tit, #home .abas, #home .dupla, #home .sobre, #home .insta .c > *, #home .garant .c > div, #home .vcard, footer .c > div"));
+anima(document.querySelectorAll("#home .tit, #home .abas, #home .dupla, #home .sobre, #home .insta .ig-tit, #home .garant .c > div, #home .vcard, footer .c > div"));
 anima(document.querySelectorAll("#home .cats .cat"), "zoom");
 anima(document.querySelectorAll("#pdp [data-anim]"));
 const animaCards = id => anima($(id).querySelectorAll(".prod"), "zoom");
@@ -1509,15 +1489,6 @@ rota();
 const qs = new URLSearchParams(location.search);
 if(qs.get("foto")){ abrirProvador(qs.get("modelo") || PRODUTOS[0].id); usarFoto(qs.get("foto")).catch(e => { console.error(e); status("Não consegui abrir a foto de teste."); }); }
 
-/* carrossel do Instagram: carrega os posts oficiais só quando a seção aparece */
-(() => {
-  const tr = $("igTrilha"); if(!tr) return;
-  const passo = () => (tr.querySelector(".ig-item")?.offsetWidth || 340) + 16;
-  document.querySelectorAll(".ig-seta").forEach(b => b.addEventListener("click", () => tr.scrollBy({ left: b.classList.contains("e") ? -passo() : passo(), behavior: "smooth" })));
-  let ok = false;
-  const carrega = () => { if(ok) return; ok = true; const sc = document.createElement("script"); sc.async = true; sc.src = "https://www.instagram.com/embed.js"; sc.onload = () => window.instgrm?.Embeds?.process(); document.body.appendChild(sc); };
-  if("IntersectionObserver" in window){ const io = new IntersectionObserver(es => { if(es.some(e => e.isIntersecting)){ carrega(); io.disconnect(); } }, { rootMargin: "600px" }); io.observe(tr); } else carrega();
-})();
 window.__yas = { abrirProvador, usarFoto, trocaArmacao, abrirProduto };
 </script>
 
